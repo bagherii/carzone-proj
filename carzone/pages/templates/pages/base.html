@@ -82,7 +82,8 @@
       </div>
       <div id="mobile-menu-wrap"></div>
       <ul class="offcanvas__widget__add">
-        <li><i class="fa fa-clock-o"></i> Week day: 08:00 am to 18:00 pm</li>
+        <li><i class="fa fa-clo
+          ck-o"></i> Week day: 08:00 am to 18:00 pm</li>
         <li><i class="fa fa-envelope-o"></i> Info.colorlib@gmail.com</li>
       </ul>
       <div class="offcanvas__phone__num">
@@ -103,9 +104,11 @@
     <!-- Hero Section Begin -->
 
     {%include 'includes/top.html'%} {%include 'includes/navbar.html'%}
+        
     <!-- Js Plugins -->
-    {% block content%} {%endblock%}
-
+    {% block content%}
+      {%endblock%}
+ {%include 'includes/footer.html'%}
   <!-- Search Begin -->
     <div class="search-model">
         <div class="h-100 d-flex align-items-center justify-content-center">
@@ -117,7 +120,7 @@
         </div>
  <!-- Search End -->
 
-     {%include 'includes/footer.html'%}
+
 
     <script src="{%static 'js/jquery-3.3.1.min.js'%}"></script>
     <script src="{%static 'js/bootstrap.min.js'%}"></script>
@@ -130,3 +133,4 @@
     <script src="{%static 'js/main.js'%}"></script>
   </body>
 </html>
+

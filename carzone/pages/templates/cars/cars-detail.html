@@ -1,0 +1,105 @@
+{%extends 'pages/base.html'%} {%block content%}
+ <div class="car__details__tab">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Vehicle
+                                    Overview</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Technical</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Features & Options</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-4" role="tab">Vehicle Location</a>
+                            </li>
+                        </ul>
+                        {%for car in  featured_cars %}
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                <div class="car__details__tab__info">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="car__details__tab__info__item">
+                                                <h5>General Information</h5>
+                                                <ul>
+                                                    <li><img src="{{car.car_photo_1.url}}"></img> </li>
+                                                    {% if car.car_photo3%}
+                                                     <li><img src="{{car.car_photo3.url}}"></img></li>
+                                                     {%endif%}
+                                                     {%if car.car_photo_4%}
+                                                        <li><img src="{{car.car_photo_4.url}}"></img></li>  
+                                                      {%endif%}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        
+                                <div class="car__details__tab__feature">
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-6 col-sm-6">
+                                            <div class="car__details__tab__feature__item">
+                                                <h5>Interior Design</h5>
+                                                <ul>
+                                                    <li><i class="fa fa-check-circle"></i> {{car.state}}</li>
+                                                    <li><i class="fa fa-check-circle"></i> {{car.city}}</li>
+                                                    <li><i class="fa fa-check-circle"></i> {{car.miles}}</li>
+                                                    <li><i class="fa fa-check-circle"></i> {{car.fuel_type}}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-6 col-sm-6">
+                                            <div class="car__details__tab__feature__item">
+                                                <h5>Safety Design</h5>
+                                                <ul>
+                                                    <li><i class="fa fa-check-circle"></i> {{car.no_of_owners}}</li>
+                                                    <li><i class="fa fa-check-circle"></i> {{car.color}}</li>
+                                                    <li><i class="fa fa-check-circle"></i> {{car.created_date}}</li>
+                                                    <li><i class="fa fa-check-circle"></i> {{car.interior}}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-6 col-sm-6">
+                                            <div class="car__details__tab__feature__item">
+                                                <h5>Extra Design</h5>
+                                                <ul>
+                                                    <li><i class="fa fa-check-circle"></i> {{car.features}}</li>
+                                                    <li><i class="fa fa-check-circle"></i> {{car.body_style}}</li>
+                                                    <li><i class="fa fa-check-circle"></i> {{car.condition}}</li>
+                                                    <li><i class="fa fa-check-circle"></i> {{car.year}}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        
+                         
+                {%endfor%}
+                {% for car in all_cars %}
+                <div class="col-lg-3">
+                    <div class="car__details__sidebar">
+                        <div class="car__details__sidebar__model">
+                            <ul>
+                                <li>Stock <span>K99D10459934</span></li>
+                                <li>Vin <span>3VWKM245686</span></li>
+                            </ul>
+                            <a href="#" class="primary-btn">{{car.car_title}}</a>
+                            <p>Pricing in 11/26/2019</p>
+                        </div>
+                        <div class="car__details__sidebar__payment">
+                            <ul>
+                                <li>MSRP <span>$120,000</span></li>
+                                <li>Dealer Discounts <span>$3,000</span></li>
+                                <li>Price <span>{{car.price}}</span></li>
+                            </ul>
+                            <a href="#" class="primary-btn"><i class="fa fa-credit-card"></i> {{car.state}}</a>
+                            <a href="#" class="primary-btn sidebar-btn"><i class="fa fa-sliders"></i> {{car.city}}</a>
+                            <a href="#" class="primary-btn sidebar-btn"><i class="fa fa-money"></i> {{car.body_style}}</a>
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Car Details Section End -->
+
+{%endblock%}

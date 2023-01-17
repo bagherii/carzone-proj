@@ -138,6 +138,7 @@
                           </select>
                         </div>
                         <div class="select-list-item">
+                        
                           <p>Select Model</p>
                           <select>
                             <option data-display=" ">Select Model</option>
@@ -268,66 +269,32 @@
                 </p>
               </div>
               <div class="feature__text__btn">
-                <a href="#" class="primary-btn">About Us</a>
+                <a href="{% url 'pages:about'%}" class="primary-btn">About Us</a>
                 <a href="#" class="primary-btn partner-btn">Our Partners</a>
               </div>
             </div>
           </div>
+          {% for car in  featured_cars  %}
           <div class="col-lg-4 offset-lg-4">
             <div class="row">
               <div class="col-lg-6 col-md-4 col-6">
                 <div class="feature__item">
                   <div class="feature__item__icon">
                     <img
-                      src=" {% static 'img/feature/feature-1.png'%}"
+                      src=" {{car.car_photo_4}}"
                       alt=""
                     />
                   </div>
-                  <h6>Engine</h6>
+                  <h6>{{car.car_title}}</h6>
+                  
                 </div>
+                <div class="price">
+                  <span>{{car.price}}</span>
+                  
+                </div>
+                {%endfor%}
               </div>
-              <div class="col-lg-6 col-md-4 col-6">
-                <div class="feature__item">
-                  <div class="feature__item__icon">
-                    <img src="{% static 'img/feature/feature-2.png'%}" alt="" />
-                  </div>
-                  <h6>Turbo</h6>
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-4 col-6"
-                <div class="feature__item">
-                  <div class="feature__item__icon">
-                    <img src="{% static 'img/feature/feature-3.png'%}" alt="" />
-                  </div>
-                  <h6>Colling</h6>
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-4 col-6">
-                <div class="feature__item">
-                  <div class="feature__item__icon">
-                    <img
-                      src="{% static 'img/feature/feature-4.png' %}"
-                      alt=""
-                    />
-                  </div>
-                  <h6>Suspension</h6>
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-4 col-6">
-                <div class="feature__item">
-                  <div class="feature__item__icon">
-                    <img src="{% static 'img/feature/feature-5.png'%}" alt="" />
-                  </div>
-                  <h6>Electrical</h6>
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-4 col-6">
-                <div class="feature__item">
-                  <div class="feature__item__icon">
-                    <img src="{% static 'img/feature/feature-6.png'%}" alt="" />
-                  </div>
-                  <h6>Brakes</h6>
-                </div>
+             
               </div>
             </div>
           </div>
@@ -588,7 +555,7 @@
                   lacus varius pretium.
                 </li>
               </ul>
-              <a href="#" class="primary-btn">About Us</a>
+              <a href="{% url 'pages:about'%}" class="primary-btn">About Us</a>
             </div>
           </div>
         </div>

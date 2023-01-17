@@ -12,18 +12,36 @@
         <div class="header__nav">
           <nav class="header__menu">
             <ul>
-              <li class="active"><a href="{% url 'pages:home'%}">Home</a></li>
-              <li><a href="./car.html">Cars</a></li>
-              <li><a href="{% url 'pages:services'%}">services</a></li>
+              <li class="active"><a 
+                {% if '' == request.path %}
+                class="nav-link active"
+                {% else %}
+                {class="nav-link"}
+                {% endif%}
+                
+                href="{% url 'pages:home'%}">Home</a></li>
+              <li><a href="{% url 'cars:cars'%}">Cars</a></li>
+              <li><a
+                {% if 'pages:services' in request.path %}
+                class="nav-link active"
+                {% else %}
+                {class="nav-link"}
+                {% endif%}
+                
+                
+                
+                href="{% url 'pages:services'%}">services</a></li>
               <li>
-                <a href="#">Pages</a>
-                <ul class="dropdown">
-                  <li><a href="{% url 'pages:about' %}">About Us</a></li>
-                  <li><a href="./car-details.html">Car Details</a></li>
-                  <li><a href="./blog-details.html">Blog Details</a></li>
-                </ul>
-              </li>
-              <li><a href="{% url 'pages:about'%}">About</a></li>
+                <a href="{% url 'cars:cardetail'%}">cardetail</a>
+                
+              <li><a
+                {% if 'about' in request.path %}
+                class="nav-link active"
+                {% else %}
+                {class="nav-link"}
+                {% endif%}
+                
+                href="{% url 'pages:about'%}">About</a></li>
               <li><a href="{% url 'pages:contact' %}">Contact</a></li>
             </ul>
           </nav>
